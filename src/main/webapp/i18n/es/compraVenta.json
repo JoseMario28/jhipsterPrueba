@@ -1,0 +1,27 @@
+{
+  "pruebaApp": {
+    "compraVenta": {
+      "home": {
+        "title": "Compra Ventas",
+        "createLabel": "Crear nuevo Compra Venta",
+        "createOrEditLabel": "Crear o editar Compra Venta",
+        "search": "Search for Compra Venta"
+      },
+      "created": "Un nuevo Compra Venta ha sido creado con el identificador {{ param }}",
+      "updated": "Un Compra Venta ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Compra Venta ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Compra Venta {{ id }}?"
+      },
+      "detail": {
+        "title": "Compra Venta"
+      },
+      "fechaVenta": "Fecha Venta",
+      "garantia": "Garantia",
+      "precioTotal": "Precio Total",
+      "cliente": "Cliente",
+      "vehiculo": "Vehiculo",
+      "trabajador": "Trabajador"
+    }
+  }
+}

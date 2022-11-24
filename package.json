@@ -30,6 +30,7 @@
     "ngx-webstorage": "3.0.2",
     "rxjs": "6.4.0",
     "swagger-ui": "2.2.10",
+    "sweetalert2": "^8.19.1",
     "tslib": "1.9.3",
     "zone.js": "0.8.29"
   },

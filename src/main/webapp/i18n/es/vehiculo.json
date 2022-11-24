@@ -1,0 +1,27 @@
+{
+  "pruebaApp": {
+    "vehiculo": {
+      "home": {
+        "title": "Vehiculos",
+        "createLabel": "Crear nuevo Vehiculo",
+        "createOrEditLabel": "Crear o editar Vehiculo",
+        "search": "Search for Vehiculo"
+      },
+      "created": "Un nuevo Vehiculo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Vehiculo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Vehiculo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Vehiculo {{ id }}?"
+      },
+      "detail": {
+        "title": "Vehiculo"
+      },
+      "modelo": "Modelo",
+      "marca": "Marca",
+      "km": "Km",
+      "anno": "Anno",
+      "precio": "Precio",
+      "patente": "Patente"
+    }
+  }
+}

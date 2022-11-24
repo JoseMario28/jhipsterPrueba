@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate [formGroup]="editForm">
+            <h2 id="jhi-vehiculo-heading" jhiTranslate="pruebaApp.vehiculo.home.createOrEditLabel">Create or edit a Vehiculo</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!vehiculo.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaApp.vehiculo.modelo" for="field_modelo">Modelo</label>
+                    <input type="text" class="form-control" name="modelo" id="field_modelo"
+                           formControlName="modelo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaApp.vehiculo.marca" for="field_marca">Marca</label>
+                    <input type="text" class="form-control" name="marca" id="field_marca"
+                           formControlName="marca"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaApp.vehiculo.km" for="field_km">Km</label>
+                    <input type="number" class="form-control" name="km" id="field_km"
+                           formControlName="km"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaApp.vehiculo.anno" for="field_anno">Anno</label>
+                    <div class="input-group">
+                        <input id="field_anno" type="text" class="form-control" name="anno" ngbDatepicker  #annoDp="ngbDatepicker" formControlName="anno"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="annoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaApp.vehiculo.precio" for="field_precio">Precio</label>
+                    <input type="number" class="form-control" name="precio" id="field_precio"
+                           formControlName="precio"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaApp.vehiculo.patente" for="field_patente">Patente</label>
+                    <input type="text" class="form-control" name="patente" id="field_patente"
+                           formControlName="patente"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" (click)="save()" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

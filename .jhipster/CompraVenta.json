@@ -1,0 +1,49 @@
+{
+    "name": "CompraVenta",
+    "fields": [
+        {
+            "fieldName": "fechaVenta",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "garantia",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "precioTotal",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "cliente",
+            "otherEntityName": "cliente",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "vehiculo",
+            "otherEntityRelationshipName": "compraVenta",
+            "relationshipName": "vehiculo",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipName": "trabajador",
+            "otherEntityName": "trabajador",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20221122093240",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "compra_venta",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="compraVenta">
+            <h2><span jhiTranslate="pruebaApp.compraVenta.detail.title">Compra Venta</span> {{compraVenta.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="pruebaApp.compraVenta.fechaVenta">Fecha Venta</span></dt>
+                <dd>
+                    <span>{{compraVenta.fechaVenta}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaApp.compraVenta.garantia">Garantia</span></dt>
+                <dd>
+                    <span>{{compraVenta.garantia}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaApp.compraVenta.precioTotal">Precio Total</span></dt>
+                <dd>
+                    <span>{{compraVenta.precioTotal}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaApp.compraVenta.cliente">Cliente</span></dt>
+                <dd>
+                    <div *ngIf="compraVenta.cliente">
+                        <a [routerLink]="['/cliente', compraVenta.cliente?.id, 'view']">{{compraVenta.cliente?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="pruebaApp.compraVenta.vehiculo">Vehiculo</span></dt>
+                <dd>
+                    <div *ngIf="compraVenta.vehiculo">
+                        <a [routerLink]="['/vehiculo', compraVenta.vehiculo?.id, 'view']">{{compraVenta.vehiculo?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="pruebaApp.compraVenta.trabajador">Trabajador</span></dt>
+                <dd>
+                    <div *ngIf="compraVenta.trabajador">
+                        <a [routerLink]="['/trabajador', compraVenta.trabajador?.id, 'view']">{{compraVenta.trabajador?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/compra-venta', compraVenta.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

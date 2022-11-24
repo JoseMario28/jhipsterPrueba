@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity CompraVenta.
+    -->
+    <changeSet id="20221122093240-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="cliente_id"
+                                 baseTableName="compra_venta"
+                                 constraintName="fk_compra_venta_cliente_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cliente"/>
+
+        <addForeignKeyConstraint baseColumnNames="vehiculo_id"
+                                 baseTableName="compra_venta"
+                                 constraintName="fk_compra_venta_vehiculo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vehiculo"/>
+
+        <addForeignKeyConstraint baseColumnNames="trabajador_id"
+                                 baseTableName="compra_venta"
+                                 constraintName="fk_compra_venta_trabajador_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="trabajador"/>
+
+    </changeSet>
+</databaseChangeLog>

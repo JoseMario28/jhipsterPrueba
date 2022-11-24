@@ -1,0 +1,26 @@
+{
+  "pruebaApp": {
+    "cliente": {
+      "home": {
+        "title": "Clientes",
+        "createLabel": "Create a new Cliente",
+        "createOrEditLabel": "Create or edit a Cliente",
+        "search": "Search for Cliente"
+      },
+      "created": "A new Cliente is created with identifier {{ param }}",
+      "updated": "A Cliente is updated with identifier {{ param }}",
+      "deleted": "A Cliente is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cliente {{ id }}?"
+      },
+      "detail": {
+        "title": "Cliente"
+      },
+      "dni": "Dni",
+      "nombre": "Nombre",
+      "apellido": "Apellido",
+      "fechaNacimiento": "Fecha Nacimiento",
+      "cliente": "Cliente"
+    }
+  }
+}

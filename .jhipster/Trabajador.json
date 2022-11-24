@@ -1,0 +1,38 @@
+{
+    "name": "Trabajador",
+    "fields": [
+        {
+            "fieldName": "dni",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "apellido",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cargo",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "compraVenta",
+            "otherEntityRelationshipName": "trabajador",
+            "relationshipName": "vendedor"
+        }
+    ],
+    "changelogDate": "20221122093241",
+    "entityTableName": "trabajador",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

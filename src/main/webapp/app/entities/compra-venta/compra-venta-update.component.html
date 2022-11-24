@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-compra-venta-heading" jhiTranslate="pruebaApp.compraVenta.home.createOrEditLabel">Create or edit a Compra Venta</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!compraVenta.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaApp.compraVenta.garantia" for="field_garantia">Garantia</label>
+                    <input type="number" class="form-control" name="garantia" id="field_garantia"
+                           formControlName="garantia"/>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaApp.compraVenta.cliente" for="field_cliente">Cliente</label>
+                    <select class="form-control" id="field_cliente" name="cliente" formControlName="cliente">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clienteOption.id === editForm.get('cliente').value?.id ? editForm.get('cliente').value : clienteOption" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaApp.compraVenta.vehiculo" for="field_vehiculo">Vehiculo</label>
+                    <select class="form-control" id="field_vehiculo" name="vehiculo" formControlName="vehiculo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vehiculoOption.id === editForm.get('vehiculo').value?.id ? editForm.get('vehiculo').value : vehiculoOption" *ngFor="let vehiculoOption of vehiculos; trackBy: trackVehiculoById">{{vehiculoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="pruebaApp.compraVenta.trabajador" for="field_trabajador">Trabajador</label>
+                    <select class="form-control" id="field_trabajador" name="trabajador" formControlName="trabajador">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="trabajadorOption.id === editForm.get('trabajador').value?.id ? editForm.get('trabajador').value : trabajadorOption" *ngFor="let trabajadorOption of trabajadors; trackBy: trackTrabajadorById">{{trabajadorOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

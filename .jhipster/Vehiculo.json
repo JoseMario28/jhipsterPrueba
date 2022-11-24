@@ -1,0 +1,39 @@
+{
+    "name": "Vehiculo",
+    "fields": [
+        {
+            "fieldName": "modelo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "marca",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "km",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "anno",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "precio",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "patente",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20221122093238",
+    "entityTableName": "vehiculo",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

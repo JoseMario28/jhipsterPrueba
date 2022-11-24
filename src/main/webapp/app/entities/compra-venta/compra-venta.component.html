@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="pruebaApp.compraVenta.home.title">Compra Ventas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-compra-venta" [routerLink]="['/compra-venta/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="pruebaApp.compraVenta.home.createLabel">
+            Create new Compra Venta
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'pruebaApp.compraVenta.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="compraVentas">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaVenta"><span jhiTranslate="pruebaApp.compraVenta.fechaVenta">Fecha Venta</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="garantia"><span jhiTranslate="pruebaApp.compraVenta.garantia">Garantia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="precioTotal"><span jhiTranslate="pruebaApp.compraVenta.precioTotal">Precio Total</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cliente.id"><span jhiTranslate="pruebaApp.compraVenta.cliente">Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="vehiculo.id"><span jhiTranslate="pruebaApp.compraVenta.vehiculo">Vehiculo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="trabajador.id"><span jhiTranslate="pruebaApp.compraVenta.trabajador">Trabajador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let compraVenta of compraVentas ;trackBy: trackId">
+                <td><a [routerLink]="['/compra-venta', compraVenta.id, 'view' ]">{{compraVenta.id}}</a></td>
+                <td>{{compraVenta.fechaVenta | date:'mediumDate'}}</td>
+                <td>{{compraVenta.garantia}}</td>
+                <td>{{compraVenta.precioTotal}}</td>
+                <td>
+                    <div *ngIf="compraVenta.cliente">
+                        <a [routerLink]="['../cliente', compraVenta.cliente?.id, 'view' ]" >{{compraVenta.cliente?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="compraVenta.vehiculo">
+                        <a [routerLink]="['../vehiculo', compraVenta.vehiculo?.id, 'view' ]" >{{compraVenta.vehiculo?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="compraVenta.trabajador">
+                        <a [routerLink]="['../trabajador', compraVenta.trabajador?.id, 'view' ]" >{{compraVenta.trabajador?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/compra-venta', compraVenta.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/compra-venta', compraVenta.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'compra-venta', { outlets: { popup: compraVenta.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="compraVentas && compraVentas.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
