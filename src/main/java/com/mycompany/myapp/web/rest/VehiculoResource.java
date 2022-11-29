@@ -144,4 +144,15 @@ public class VehiculoResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+
+
+    @GetMapping("/vehiculos/filtrarVehiculo/{marca}")
+    public ResponseEntity<List<Vehiculo>> getFiltrarVehiculos(@PathVariable String marca,Pageable pageable, @RequestParam MultiValueMap<String, String> queryParams, UriComponentsBuilder uriBuilder) {
+        log.debug("REST request to get a page of Vehiculos");
+        Page<Vehiculo> page = vehiculoService.findVehiculosFiltrados(marca,pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(uriBuilder.queryParams(queryParams), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+
 }

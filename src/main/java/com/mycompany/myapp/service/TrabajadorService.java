@@ -1,10 +1,12 @@
 package com.mycompany.myapp.service;
 
+import com.mycompany.myapp.domain.TotalVentas;
 import com.mycompany.myapp.domain.Trabajador;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -48,9 +50,11 @@ public interface TrabajadorService {
      * Search for the trabajador corresponding to the query.
      *
      * @param query the query of the search.
-     * 
+     *
      * @param pageable the pagination information.
      * @return the list of entities.
      */
     Page<Trabajador> search(String query, Pageable pageable);
+
+
 }

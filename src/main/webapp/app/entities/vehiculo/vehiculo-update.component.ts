@@ -23,7 +23,8 @@ export class VehiculoUpdateComponent implements OnInit {
     km: [],
     anno: [],
     precio: [],
-    patente: []
+    patente: [],
+    usado: []
   });
 
   constructor(protected vehiculoService: VehiculoService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -44,7 +45,8 @@ export class VehiculoUpdateComponent implements OnInit {
       km: vehiculo.km,
       anno: vehiculo.anno,
       precio: vehiculo.precio,
-      patente: vehiculo.patente
+      patente: vehiculo.patente,
+      usado: vehiculo.usado
     });
   }
 
@@ -71,7 +73,8 @@ export class VehiculoUpdateComponent implements OnInit {
       km: this.editForm.get(['km']).value,
       anno: this.editForm.get(['anno']).value,
       precio: this.editForm.get(['precio']).value,
-      patente: this.editForm.get(['patente']).value
+      patente: this.editForm.get(['patente']).value,
+      usado: this.editForm.get(['usado']).value
     };
     return entity;
   }

@@ -3,7 +3,7 @@ package com.mycompany.myapp.web.rest;
 import com.mycompany.myapp.domain.CompraVenta;
 import com.mycompany.myapp.service.CompraVentaService;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
-
+import com.mycompany.myapp.domain.TotalVentas;
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -142,6 +142,20 @@ public class CompraVentaResource {
         Page<CompraVenta> page = compraVentaService.search(query, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(uriBuilder.queryParams(queryParams), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+/**
+     * {@code GET  /trabajadors} : get all the trabajadors.
+     *
+     * @param pageable the pagination information.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of trabajadors in body.
+     */
+    @GetMapping("/compra-ventas/totalVentas")
+    public ResponseEntity<List<TotalVentas>> getTotalVentasPorTrabajador() {
+        log.debug("REST request to get a page of Trabajadors");
+        List<TotalVentas> total = compraVentaService.filtrarNumeroVentas();
+
+        return ResponseEntity.ok().body(total);
     }
 
 }

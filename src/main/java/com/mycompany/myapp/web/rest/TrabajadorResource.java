@@ -1,5 +1,6 @@
 package com.mycompany.myapp.web.rest;
 
+import com.mycompany.myapp.domain.TotalVentas;
 import com.mycompany.myapp.domain.Trabajador;
 import com.mycompany.myapp.service.TrabajadorService;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
@@ -143,5 +144,9 @@ public class TrabajadorResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(uriBuilder.queryParams(queryParams), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
+
+
+
+
 
 }

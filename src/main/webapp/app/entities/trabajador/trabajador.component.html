@@ -34,18 +34,33 @@
             <th jhiSortBy="nombre"><span jhiTranslate="pruebaApp.trabajador.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="apellido"><span jhiTranslate="pruebaApp.trabajador.apellido">Apellido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="cargo"><span jhiTranslate="pruebaApp.trabajador.cargo">Cargo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th>Total Ventas</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+
+
             <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let trabajador of trabajadors ;trackBy: trackId">
+            <tr *ngFor="let trabajador of trabajadors ;trackBy: trackId" >
                 <td><a [routerLink]="['/trabajador', trabajador.id, 'view' ]">{{trabajador.id}}</a></td>
                 <td>{{trabajador.dni}}</td>
                 <td>{{trabajador.nombre}}</td>
                 <td>{{trabajador.apellido}}</td>
                 <td>{{trabajador.cargo}}</td>
+                <td>
+                    <ng-container *ngFor="let item of totalVentas" >
+                        <ng-container *ngIf="trabajador.id == item.idTrabajador; else esleblock">{{item.total}}</ng-container>
+
+                    </ng-container>
+                </td>
                 <td class="text-right">
                     <div class="btn-group">
+                        <button type="submit"
+                                (click)="open(trabajador, item)"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
                         <button type="submit"
                                 [routerLink]="['/trabajador', trabajador.id, 'view' ]"
                                 class="btn btn-info btn-sm">

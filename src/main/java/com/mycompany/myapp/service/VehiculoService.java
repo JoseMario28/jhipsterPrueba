@@ -48,9 +48,13 @@ public interface VehiculoService {
      * Search for the vehiculo corresponding to the query.
      *
      * @param query the query of the search.
-     * 
+     *
      * @param pageable the pagination information.
      * @return the list of entities.
      */
     Page<Vehiculo> search(String query, Pageable pageable);
+
+    Page<Vehiculo> findVehiculosFiltrados(String marca, Pageable pageable);
+
+
 }

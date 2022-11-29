@@ -4,9 +4,9 @@ import com.mycompany.myapp.domain.CompraVenta;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
+import com.mycompany.myapp.domain.TotalVentas;
 import java.util.Optional;
-
+import java.util.List;
 /**
  * Service Interface for managing {@link CompraVenta}.
  */
@@ -48,9 +48,11 @@ public interface CompraVentaService {
      * Search for the compraVenta corresponding to the query.
      *
      * @param query the query of the search.
-     * 
+     *
      * @param pageable the pagination information.
      * @return the list of entities.
      */
     Page<CompraVenta> search(String query, Pageable pageable);
+
+    List<TotalVentas> filtrarNumeroVentas();
 }

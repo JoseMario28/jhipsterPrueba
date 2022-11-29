@@ -45,6 +45,24 @@ public class Vehiculo implements Serializable {
     @Column(name = "patente")
     private String patente;
 
+
+    //---------------------------------------------------------------------------------------------
+    @Column(name="usado")
+    private Boolean usado;
+
+
+
+
+    public Boolean getUsado() {
+        return usado;
+    }
+
+    public void setUsado(Boolean usado) {
+        this.usado = usado;
+    }
+
+    //---------------------------------------------------------------------------------------------
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;

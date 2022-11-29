@@ -10,7 +10,10 @@
     <include file="config/liquibase/changelog/20221122093240_added_entity_CompraVenta.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20221122093241_added_entity_Trabajador.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
-    <include file="config/liquibase/changelog/20221122093238_added_entity_constraints_Vehiculo.xml" relativeToChangelogFile="false"/>
+    <!-- <include file="config/liquibase/changelog/20221122093238_added_entity_constraints_Vehiculo.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20221122093240_added_entity_constraints_CompraVenta.xml" relativeToChangelogFile="false"/>
-    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+
+    <include file="config/liquibase/changelog/20221125131325_modified_entity_Vehiculo_added_column.xml" relativeToChangelogFile="false"/>
+
 </databaseChangeLog>

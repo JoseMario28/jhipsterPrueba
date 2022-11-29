@@ -5,11 +5,16 @@ import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
-import { ITrabajador } from 'app/shared/model/trabajador.model';
+import { ITotalVentas, ITrabajador } from 'app/shared/model/trabajador.model';
 import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { TrabajadorService } from './trabajador.service';
+import { CompraVentaService } from '../compra-venta';
+import { element } from '@angular/core/src/render3';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComisionTrabajadorComponent } from './modal-comision-trabajador/modal-comision-trabajador.component';
+import { VehiculoEditDialogComponent } from '../vehiculo/vehiculo-edit-dialog/vehiculo-edit-dialog.component';
 
 @Component({
   selector: 'jhi-trabajador',
@@ -18,6 +23,9 @@ import { TrabajadorService } from './trabajador.service';
 export class TrabajadorComponent implements OnInit, OnDestroy {
   currentAccount: any;
   trabajadors: ITrabajador[];
+
+  totalVentas: ITotalVentas[] = [];
+
   error: any;
   success: any;
   eventSubscriber: Subscription;
@@ -32,6 +40,8 @@ export class TrabajadorComponent implements OnInit, OnDestroy {
   reverse: any;
 
   constructor(
+    private modalService: NgbModal,
+    protected compraVentaService: CompraVentaService,
     protected trabajadorService: TrabajadorService,
     protected parseLinks: JhiParseLinks,
     protected jhiAlertService: JhiAlertService,
@@ -49,6 +59,26 @@ export class TrabajadorComponent implements OnInit, OnDestroy {
     });
     this.currentSearch =
       this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search'] ? this.activatedRoute.snapshot.params['search'] : '';
+  }
+
+  open(trabajador: ITrabajador) {
+    const modalRef = this.modalService.open(ModalComisionTrabajadorComponent);
+    modalRef.componentInstance.trabajador = trabajador;
+
+    for (var as of this.totalVentas) {
+      if (trabajador.id == as.idTrabajador) {
+        modalRef.componentInstance.totalNumeroVentas = as;
+      }
+
+      //   console.log(as.total)
+    }
+  }
+
+  open_dialog(trabajador: ITrabajador) {
+    console.log(trabajador);
+
+    const modalRef = this.modalService.open(VehiculoEditDialogComponent);
+    modalRef.componentInstance.trabajador = trabajador;
   }
 
   loadAll() {
@@ -128,6 +158,21 @@ export class TrabajadorComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.compraVentaService.buscarTotalVentas().subscribe(res => {
+      this.totalVentas = res.body;
+    });
+    // this.totalVentas.forEach(element =>{
+    //   this.totalVentas2.push(element.idTrabajador)
+    //   console.log(this.totalVentas2)
+    // })
+    // console.log(this.totalVentas)
+    // // //console.log(this.totalVentas[0].idTrabajador)
+
+    // for (var as of this.totalVentas) {
+
+    //   console.log(as.total)
+    // }
+
     this.loadAll();
     this.accountService.identity().then(account => {
       this.currentAccount = account;

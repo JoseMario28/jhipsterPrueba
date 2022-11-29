@@ -1,6 +1,6 @@
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { IVehiculo, Vehiculo } from 'app/shared/model/vehiculo.model';
@@ -28,7 +28,8 @@ export class VehiculoEditDialogComponent {
     km: [],
     anno: [],
     precio: [],
-    patente: []
+    patente: [],
+    usado: []
   });
 
   private createFromForm(): IVehiculo {
@@ -40,7 +41,8 @@ export class VehiculoEditDialogComponent {
       km: this.editForm.get(['km']).value,
       anno: this.editForm.get(['anno']).value,
       precio: this.editForm.get(['precio']).value,
-      patente: this.editForm.get(['patente']).value
+      patente: this.editForm.get(['patente']).value,
+      usado: this.editForm.get(['usado']).value
     };
     return entity;
   }
@@ -53,7 +55,8 @@ export class VehiculoEditDialogComponent {
       km: vehiculo.km,
       anno: vehiculo.anno,
       precio: vehiculo.precio,
-      patente: vehiculo.patente
+      patente: vehiculo.patente,
+      usado: vehiculo.usado
     });
   }
 
@@ -64,6 +67,7 @@ export class VehiculoEditDialogComponent {
       this.isSaving = false;
       console.log('entro');
       this.vehiculo = new Vehiculo();
+      this.vehiculo.usado = false;
       this.updateForm(this.vehiculo);
       console.log(this.vehiculo.id);
     }

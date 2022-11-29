@@ -7,6 +7,23 @@
             Create new Vehiculo
             </span>
         </button>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vehiculo" (click)="filtrarVehiculos()">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  >
+            Filtrar
+            </span>
+        </button>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vehiculo" (click)="loadAll()">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  >
+            Todos
+            </span>
+        </button>
+
+
+
     </h2>
     <jhi-alert></jhi-alert>
     <div class="row">
@@ -36,6 +53,7 @@
             <th jhiSortBy="anno"><span jhiTranslate="pruebaApp.vehiculo.anno">Anno</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="precio"><span jhiTranslate="pruebaApp.vehiculo.precio">Precio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="patente"><span jhiTranslate="pruebaApp.vehiculo.patente">Patente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="patente"><span >Usado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -48,6 +66,7 @@
                 <td>{{vehiculo.anno | date:'mediumDate'}}</td>
                 <td>{{vehiculo.precio}}</td>
                 <td>{{vehiculo.patente}}</td>
+                <td>{{vehiculo.usado}}</td>
                 <td class="text-right">
                     <div class="btn-group">
 

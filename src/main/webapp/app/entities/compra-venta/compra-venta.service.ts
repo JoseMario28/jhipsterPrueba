@@ -8,9 +8,11 @@ import { map } from 'rxjs/operators';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { ICompraVenta } from 'app/shared/model/compra-venta.model';
+import { ITotalVentas } from 'app/shared/model/trabajador.model';
 
 type EntityResponseType = HttpResponse<ICompraVenta>;
 type EntityArrayResponseType = HttpResponse<ICompraVenta[]>;
+type EntityArrayResponseType2 = HttpResponse<ITotalVentas[]>;
 
 @Injectable({ providedIn: 'root' })
 export class CompraVentaService {
@@ -78,5 +80,9 @@ export class CompraVentaService {
       });
     }
     return res;
+  }
+
+  buscarTotalVentas(): Observable<EntityArrayResponseType2> {
+    return this.http.get<ITotalVentas[]>(`${this.resourceUrl}/totalVentas`, { observe: 'response' });
   }
 }

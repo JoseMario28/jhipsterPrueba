@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
-import { ITrabajador } from 'app/shared/model/trabajador.model';
+import { ITotalVentas, ITrabajador } from 'app/shared/model/trabajador.model';
 
 type EntityResponseType = HttpResponse<ITrabajador>;
 type EntityArrayResponseType = HttpResponse<ITrabajador[]>;

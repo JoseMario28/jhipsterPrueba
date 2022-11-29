@@ -9,6 +9,11 @@ export interface ITrabajador {
   vendedors?: ICompraVenta[];
 }
 
+export interface ITotalVentas {
+  idTrabajador: number;
+  total: number;
+}
+
 export class Trabajador implements ITrabajador {
   constructor(
     public id?: number,

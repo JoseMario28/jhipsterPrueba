@@ -99,4 +99,10 @@ public class VehiculoServiceImpl implements VehiculoService {
     public Page<Vehiculo> search(String query, Pageable pageable) {
         log.debug("Request to search for a page of Vehiculos for query {}", query);
         return vehiculoSearchRepository.search(queryStringQuery(query), pageable);    }
+
+    @Override
+    public Page<Vehiculo> findVehiculosFiltrados(String marca, Pageable pageable) {
+
+        return vehiculoRepository.searchVehiculosFiltrados(marca, pageable);
+    }
 }

@@ -13,6 +13,7 @@ import {
   trabajadorRoute,
   trabajadorPopupRoute
 } from './';
+import { ModalComisionTrabajadorComponent } from './modal-comision-trabajador/modal-comision-trabajador.component';
 
 const ENTITY_STATES = [...trabajadorRoute, ...trabajadorPopupRoute];
 
@@ -23,9 +24,16 @@ const ENTITY_STATES = [...trabajadorRoute, ...trabajadorPopupRoute];
     TrabajadorDetailComponent,
     TrabajadorUpdateComponent,
     TrabajadorDeleteDialogComponent,
+    TrabajadorDeletePopupComponent,
+    ModalComisionTrabajadorComponent
+  ],
+  entryComponents: [
+    TrabajadorComponent,
+    ModalComisionTrabajadorComponent,
+    TrabajadorUpdateComponent,
+    TrabajadorDeleteDialogComponent,
     TrabajadorDeletePopupComponent
   ],
-  entryComponents: [TrabajadorComponent, TrabajadorUpdateComponent, TrabajadorDeleteDialogComponent, TrabajadorDeletePopupComponent],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

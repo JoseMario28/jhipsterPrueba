@@ -7,7 +7,7 @@
         Added the constraints for entity Vehiculo.
     -->
     <changeSet id="20221122093238-2" author="jhipster">
-        
+
         <addForeignKeyConstraint baseColumnNames="coche_id"
                                  baseTableName="vehiculo"
                                  constraintName="fk_vehiculo_coche_id"

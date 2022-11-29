@@ -79,4 +79,11 @@ export class VehiculoService {
     }
     return res;
   }
+
+  vehiculosFiltrados(marca: string, req?: any): Observable<EntityArrayResponseType> {
+    const options = createRequestOption(req);
+    return this.http
+      .get<IVehiculo[]>(`${this.resourceUrl}/filtrarVehiculo/${marca}`, { params: options, observe: 'response' })
+      .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+  }
 }

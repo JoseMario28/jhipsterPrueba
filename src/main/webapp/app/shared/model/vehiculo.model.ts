@@ -8,6 +8,7 @@ export interface IVehiculo {
   anno?: Moment;
   precio?: number;
   patente?: string;
+  usado?: boolean;
 }
 
 export class Vehiculo implements IVehiculo {
@@ -18,6 +19,7 @@ export class Vehiculo implements IVehiculo {
     public km?: number,
     public anno?: Moment,
     public precio?: number,
-    public patente?: string
+    public patente?: string,
+    public usado?: boolean
   ) {}
 }

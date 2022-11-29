@@ -14,6 +14,7 @@ import { IVehiculo } from 'app/shared/model/vehiculo.model';
 import { VehiculoService } from 'app/entities/vehiculo';
 import { ITrabajador } from 'app/shared/model/trabajador.model';
 import { TrabajadorService } from 'app/entities/trabajador';
+import { resolveSoa } from 'dns';
 
 @Component({
   selector: 'jhi-compra-venta-update',
@@ -25,7 +26,7 @@ export class CompraVentaUpdateComponent implements OnInit {
 
   clientes: ICliente[];
 
-  vehiculos: IVehiculo[];
+  vehiculos: IVehiculo[] = [];
 
   trabajadors: ITrabajador[];
   fechaVentaDp: any;
@@ -72,7 +73,14 @@ export class CompraVentaUpdateComponent implements OnInit {
       .subscribe(
         (res: IVehiculo[]) => {
           if (!this.compraVenta.vehiculo || !this.compraVenta.vehiculo.id) {
-            this.vehiculos = res;
+            res.forEach(element => {
+              if (element.usado == true) {
+                if (Array.isArray(this.vehiculos)) {
+                  this.vehiculos.push(element);
+                }
+              }
+            });
+            //this.vehiculos = res;
           } else {
             this.vehiculoService
               .find(this.compraVenta.vehiculo.id)
@@ -120,6 +128,8 @@ export class CompraVentaUpdateComponent implements OnInit {
       this.subscribeToSaveResponse(this.compraVentaService.update(compraVenta));
     } else {
       this.subscribeToSaveResponse(this.compraVentaService.create(compraVenta));
+      compraVenta.vehiculo.usado = false;
+      this.subscribeToSaveResponse(this.vehiculoService.update(compraVenta.vehiculo));
     }
   }
 

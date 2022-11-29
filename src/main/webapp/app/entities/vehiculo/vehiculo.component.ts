@@ -55,6 +55,22 @@ export class VehiculoComponent implements OnInit, OnDestroy {
       this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search'] ? this.activatedRoute.snapshot.params['search'] : '';
   }
 
+  filtrarVehiculos() {
+    this.vehiculoService
+      .vehiculosFiltrados('aa', {
+        page: this.page - 1,
+        query: this.currentSearch,
+        size: this.itemsPerPage,
+        sort: this.sort()
+      })
+      .subscribe(
+        (res: HttpResponse<IVehiculo[]>) => this.paginateVehiculos(res.body, res.headers),
+        (res: HttpErrorResponse) => this.onError(res.message)
+      );
+  }
+
+  dispo() {}
+
   open(vehiculo: IVehiculo) {
     const modalRef = this.modalService.open(VehiculoInfoDialogComponent);
     modalRef.componentInstance.vehiculo = vehiculo;

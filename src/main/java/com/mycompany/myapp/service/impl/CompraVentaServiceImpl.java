@@ -2,6 +2,7 @@ package com.mycompany.myapp.service.impl;
 
 import com.mycompany.myapp.service.CompraVentaService;
 import com.mycompany.myapp.domain.CompraVenta;
+import com.mycompany.myapp.domain.TotalVentas;
 import com.mycompany.myapp.domain.Vehiculo;
 import com.mycompany.myapp.repository.CompraVentaRepository;
 import com.mycompany.myapp.repository.search.CompraVentaSearchRepository;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
@@ -104,4 +106,17 @@ public class CompraVentaServiceImpl implements CompraVentaService {
     public Page<CompraVenta> search(String query, Pageable pageable) {
         log.debug("Request to search for a page of CompraVentas for query {}", query);
         return compraVentaSearchRepository.search(queryStringQuery(query), pageable);    }
+
+      /**
+     * Get all the trabajadors.
+     *
+     *
+     * @return the list of entities.
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public List<TotalVentas> filtrarNumeroVentas() {
+        log.debug("Request to get all Trabajadors");
+        return compraVentaRepository.searchVehiculosFiltrados();
+    }
 }

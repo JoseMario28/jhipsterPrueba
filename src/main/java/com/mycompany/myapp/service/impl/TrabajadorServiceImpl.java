@@ -2,10 +2,14 @@ package com.mycompany.myapp.service.impl;
 
 import com.mycompany.myapp.service.TrabajadorService;
 import com.mycompany.myapp.domain.Trabajador;
+import com.mycompany.myapp.domain.TotalVentas;
 import com.mycompany.myapp.repository.TrabajadorRepository;
 import com.mycompany.myapp.repository.search.TrabajadorSearchRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -99,4 +103,6 @@ public class TrabajadorServiceImpl implements TrabajadorService {
     public Page<Trabajador> search(String query, Pageable pageable) {
         log.debug("Request to search for a page of Trabajadors for query {}", query);
         return trabajadorSearchRepository.search(queryStringQuery(query), pageable);    }
+
+
 }
