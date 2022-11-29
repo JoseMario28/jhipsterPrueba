@@ -34,7 +34,6 @@
                 <constraints nullable="true" />
             </column>
 
-
             <column name="cargo" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
