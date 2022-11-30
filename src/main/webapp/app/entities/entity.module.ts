@@ -55,6 +55,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'compra-venta',
         loadChildren: './compra-venta/compra-venta.module#PruebaCompraVentaModule'
+      },
+      {
+        path: 'comision',
+        loadChildren: './comision/comision.module#PruebaComisionModule'
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])
