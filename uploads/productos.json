@@ -1,0 +1,43 @@
+[{
+  "_id": "1234",
+  "Proveedor": [
+    {
+      "Id": "id1",
+      "Nombre": "proveedor1",
+      "Poblacion": "fsdfds",
+      "Telefono": "54536"
+    },
+    {
+      "Id": "id2",
+      "Nombre": "proveedor2",
+      "Poblacion": "fsdfds",
+      "Telefono": "5455543546"
+    }
+  ],
+  "Clase": "Fruta",
+  "Origen": "Colombia",
+  "Envase": "A granel",
+  "Referencia": "#ref",
+  "Descripcion": "asd",
+  "Precio": 2,
+  "Fecha": "0001-01-01T00:00:00",
+  "Stock": 2
+},{
+  "_id": "22",
+  "Proveedor": [
+    {
+      "Id": "id2",
+      "Nombre": "proveedor2",
+      "Poblacion": "fsdfds",
+      "Telefono": "5455543546"
+    }
+  ],
+  "Clase": "verdura",
+  "Origen": "Colombia",
+  "Envase": "A granel",
+  "Referencia": "#ref",
+  "Descripcion": "Descripcion",
+  "Precio": 10,
+  "Fecha": "0001-01-01T00:00:00",
+  "Stock": 110
+}]

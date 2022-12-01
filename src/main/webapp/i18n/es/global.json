@@ -12,6 +12,7 @@
         "compraVenta": "Compra Venta",
         "trabajador": "Trabajador",
         "comision": "Comision",
+        "documento": "Documento",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

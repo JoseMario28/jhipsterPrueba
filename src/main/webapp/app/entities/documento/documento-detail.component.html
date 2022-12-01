@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="documento">
+            <h2><span jhiTranslate="pruebaApp.documento.detail.title">Documento</span> {{documento.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="pruebaApp.documento.path">Path</span></dt>
+                <dd>
+                    <span>{{documento.path}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaApp.documento.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{documento.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="pruebaApp.documento.contentType">Content Type</span></dt>
+                <dd>
+                    <span>{{documento.contentType}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/documento', documento.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

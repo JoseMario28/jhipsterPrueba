@@ -10,5 +10,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @ConfigurationProperties(prefix = "application", ignoreUnknownFields = false)
 public class ApplicationProperties {
+    private String rutaFichero = null;
+
+    public String getRutaFichero() {
+        return rutaFichero;
+    }
+
+    public void setRutaFichero(String rutaFichero) {
+        this.rutaFichero = rutaFichero;
+    }
 
 }
